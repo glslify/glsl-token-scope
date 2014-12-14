@@ -18,15 +18,20 @@ be modified in-place, and given `scope` and `stack` properties.
 
 `token.stack` is an array containing the scopes available to the current token.
 
+Note that you must first determine the scope depth of each token using
+[`glsl-token-depth`](http://github.com/stackgl/glsl-token-depth)
+
 ``` javascript
 var tokenize = require('glsl-tokenizer/string')
 var depth    = require('glsl-token-depth')
+var scope    = require('glsl-token-scope')
 var fs       = require('fs')
 
 var src = fs.readFileSync('shader.frag', 'utf8')
 var tokens = tokenize(src)
 
 depth(tokens)
+scope(tokens)
 
 tokens[0].scope // 0
 tokens[1].scope // 0
