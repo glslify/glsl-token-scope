@@ -45,13 +45,13 @@ test('glsl-token-scope: for loops', function(t) {
   var tokens = scope(depth(tokenizer(src)))
 
   eachIdent(tokens, 'loop1', function(ident) {
-    t.equal(ident.scope, 3, 'loop1 / scope: 3')
-    t.deepEqual(ident.stack, [0, 2, 3], 'loop1 / stack: [0, 2, 3]')
+    t.equal(ident.scope, 5, 'loop1 / scope: 5')
+    t.deepEqual(ident.stack, [0, 4, 5], 'loop1 / stack: [0, 4, 5]')
   })
 
   eachIdent(tokens, 'loop2', function(ident) {
-    t.equal(ident.scope, 5, 'loop2 / scope: 3')
-    t.deepEqual(ident.stack, [0, 2, 3, 4, 5], 'loop2 / stack: [0, 2, 3, 4, 5]')
+    t.equal(ident.scope, 7, 'loop2 / scope: 7')
+    t.deepEqual(ident.stack, [0, 4, 5, 6, 7], 'loop2 / stack: [0, 4, 5, 6, 7]')
   })
 
   t.end()
@@ -64,12 +64,12 @@ test('glsl-token-scope: while loops', function(t) {
     switch (i) {
       case 0:
       case 1:
-        t.equal(ident.scope, 2, 'tenth / scope: 2')
-        t.deepEqual(ident.stack, [0, 2], 'tenth / stack: [0, 2]')
+        t.equal(ident.scope, 4, 'tenth / scope: 2')
+        t.deepEqual(ident.stack, [0, 4], 'tenth / stack: [0, 4]')
       break
       case 2:
-        t.equal(ident.scope, 8, 'tenth / scope: 8')
-        t.deepEqual(ident.stack, [0, 2, 8], 'tenth / stack: [0, 2, 8]')
+        t.equal(ident.scope, 10, 'tenth / scope: 8')
+        t.deepEqual(ident.stack, [0, 4, 10], 'tenth / stack: [0, 4, 10]')
       break
     }
   })

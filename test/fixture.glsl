@@ -7,6 +7,11 @@ struct Thing {
 
 Thing hello;
 
+float aFunction(float _x, float _y);
+float aFunction(float _x, float _y) {
+  return _x + _y;
+}
+
 void main() {
   for (int loop1 = 0; loop1 < 5; loop1++) {
     first[i];
