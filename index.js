@@ -5,6 +5,7 @@ function tokenScope(tokens) {
   var inc    = stack[0]
   var ldepth = 0
 
+  if (!tokens || !tokens.length) return tokens
   if (!('depth' in tokens[0])) {
     throw new Error('glsl-token-scope: No scope depth defined on tokens! Use glsl-token-depth on these tokens first')
   }
